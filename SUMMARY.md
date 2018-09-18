@@ -11,4 +11,8 @@
   * [Events & Listeners](node-js/events-and-listeners.md)
   * [Streams](node-js/streams.md)
   * [Error Management](node-js/error-management.md)
+* [Express](http://courses.wishtack.com/nodejs/web-dev)
+* [Testing](http://courses.wishtack.com/nodejs/testing)
+* [Data Source](http://courses.wishtack.com/nodejs/data-source)
+* [WebSocket](http://courses.wishtack.com/nodejs/websocket)
 
