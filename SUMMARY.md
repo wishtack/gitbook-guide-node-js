@@ -6,4 +6,5 @@
 * [Tools](https://guide-angular.wishtack.io/tools)
 * [Node.js](node-js/README.md)
   * [Pourquoi Node.js ?](node-js/pourquoi-node.js.md)
+  * [Modules](node-js/modules.md)
 
