@@ -10,4 +10,5 @@
   * [Global objects](node-js/global-objects.md)
   * [Events & Listeners](node-js/events-and-listeners.md)
   * [Streams](node-js/streams.md)
+  * [Error Management](node-js/error-management.md)
 
