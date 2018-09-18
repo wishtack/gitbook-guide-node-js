@@ -1,4 +1,4 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Le Guide Node.js par Wishtack](README.md)
 
