@@ -15,6 +15,7 @@
   * [Getting Started](express/getting-started.md)
   * [Express Generator](express/express-generator.md)
   * [Middlewares](express/middlewares.md)
+  * [Routing](express/routing.md)
 * [Testing](http://courses.wishtack.com/nodejs/testing)
 * [Data Source](http://courses.wishtack.com/nodejs/data-source)
 * [WebSocket](http://courses.wishtack.com/nodejs/websocket)
