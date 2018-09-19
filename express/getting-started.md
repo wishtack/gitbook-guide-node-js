@@ -1,4 +1,4 @@
-# Express
+# Getting Started
 
 Express est un framework web Node.js performant et **minimaliste**, accompagné d'un large écosystème.
 
@@ -34,5 +34,11 @@ const server = app.listen(3000, () => {
     console.log(`App listening on http://${host}:${port}`);
     
 });
+```
+
+Il suffit ensuite de lancer l'application :
+
+```bash
+node app.js
 ```
 
