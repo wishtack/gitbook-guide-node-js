@@ -43,7 +43,17 @@ app.use((err, req, res, next) => {
 
 ### Built-in
 
-Express fournit des middlewares natifs comme "express.static" pour servir les fichiers statiques.
+Express fournit des middlewares natifs comme `express.static` pour servir les fichiers statiques.
+
+Le middleware `express.static` permet de définir les ressources statiques distribuées par l'application.
+
+```javascript
+app.use('/assets', express.static('public'));
+```
+
+{% hint style="info" %}
+Il reste préférable d'utiliser un CDN _\(Content Delivery Network\)_ pour servir des ressources statiques ou encore mieux : Firebase Hosting [https://firebase.google.com/docs/hosting/](https://firebase.google.com/docs/hosting/), AWS Cloudfront + S3, Netlify [https://www.netlify.com/](https://www.netlify.com/)...
+{% endhint %}
 
 ### Third-party
 
