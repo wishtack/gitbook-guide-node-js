@@ -47,3 +47,121 @@ Les frameworks les plus utilisés sont Jasmine et Mocha. Ceux-ci étant très si
 
 {% embed data="{\"url\":\"https://jestjs.io/\",\"type\":\"link\",\"title\":\"Jest · 🃏 Delightful JavaScript Testing\",\"description\":\"🃏 Delightful JavaScript Testing\",\"icon\":{\"type\":\"icon\",\"url\":\"https://jestjs.io/img/favicon/favicon.ico\",\"aspectRatio\":0},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://jestjs.io/img/opengraph.png\",\"width\":796,\"height\":416,\"aspectRatio\":0.5226130653266332}}" %}
 
+## Jasmine
+
+### Exemple avec Jasmine
+
+```javascript
+const cache = require('cache');
+const User = require('user');
+const Wish = require('wish');
+
+describe('User', () => {
+
+    beforeEach(() => {
+        cache.clear();
+    });
+
+    afterEach(() => {
+        cache.clear();
+    });
+
+    it('should add wishes', function() {
+
+        const user = new User();
+        const wish = new Wish({title: 'Holidays'});
+
+        /* Add a wish. */
+        user.addWish(wish);
+
+        /* Check wishlist. */
+        expect(user.wishList().length).toEqual(1);
+        expect(user.wishList()[0].title()).toEqual('Holidays');
+
+    });
+
+});
+```
+
+### Exécution des tests avec `jasmine-node`
+
+```javascript
+yarn add --dev jasmine-node
+
+yarn jasmine-node --autoTest --watchFolders app.js routes views test/unit
+```
+
+### Jasmine's Spies
+
+Les _spies_ de Jasmine sont une implémentation de _mocks_.
+
+Ils permettent d'implémenter des tests comportementaux. Autrement dit, ils permettent de simuler le comportement d'une partie de code que l'on souhaite exclure du test unitare.
+
+Sans _mocks_, les tests seraient des tests d'intégration et non des tests unitaires.
+
+```javascript
+describe('SearchEngine', () => {
+
+    it('should pass locale to third party api', () => {
+
+        /* Spying on `thirdPartySearchApi.search` and faking result. */
+        spyOn(thirdPartySearchApi, 'search').and.returnValue([
+            {
+                title: 'Wishtack - Making Your Wishes Come True',
+                url: 'https://www.wishtack.com'
+            }
+        ]);
+
+        /* Trigger search. */
+        searchEngine.search({keywords: 'Wishtack'});
+
+        /* Check spy's call count. */
+        expect(thirdPartySearchApi.search.callCount).toBe(1);
+
+        /* Check spy's call args. */
+        expect(thirdPartySearchApi.search).toHaveBeenCalledWith({
+            country: 'US',
+            keywords: 'Wishtack',
+            language: 'en'
+        });
+
+    });
+
+});
+```
+
+{% hint style="warning" %}
+Pensez à tester les cas d'erreur !
+{% endhint %}
+
+## **HTTP Testing**
+
+Pour tester le _routing_ et les interactions avec le serveur, il faut simuler les requêtes à l'aide d'outils comme `supertest`.
+
+**https://github.com/visionmedia/supertest**
+
+{% embed data="{\"url\":\"https://github.com/visionmedia/supertest\",\"type\":\"link\",\"title\":\"visionmedia/supertest\",\"description\":\"Super-agent driven library for testing node.js HTTP servers using a fluent API - visionmedia/supertest\",\"icon\":{\"type\":\"icon\",\"url\":\"https://github.com/fluidicon.png\",\"aspectRatio\":0},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://avatars3.githubusercontent.com/u/9285252?s=400&v=4\",\"width\":400,\"height\":400,\"aspectRatio\":1}}" %}
+
+```javascript
+const express = require('express');
+const request = require('supertest');
+
+describe('wishes RESTful API', () => {
+
+    it('should return wishes', (done) => {
+
+        request(app)
+            .get('/users/123456/wishes/')
+            .set('Accept', 'application/json')
+            .expect(200, [
+                {
+                    id: 'abcdef',
+                    title: 'Holidays'
+                }
+            ], done);
+
+    });
+    
+});
+```
+
