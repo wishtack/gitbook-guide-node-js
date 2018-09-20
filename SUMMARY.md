@@ -17,9 +17,9 @@
   * [Middlewares](express/middlewares.md)
   * [Routing](express/routing.md)
   * [Templating](express/templating.md)
+* [LoopBack](loopback.md)
 * [Testing](http://courses.wishtack.com/nodejs/testing)
 * [Databases](databases.md)
 * [WebSocket](http://courses.wishtack.com/nodejs/websocket)
 * [Sécurité](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d)
-* [LoopBack](loopback.md)
 
