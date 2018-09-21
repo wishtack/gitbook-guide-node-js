@@ -24,7 +24,7 @@ yarn add express # ou npm install --save express
 ... puis importer le module tel un module natif.
 
 ```javascript
-const exporess = require('express');
+const express = require('express');
 ```
 
 ## Modules "custom"
