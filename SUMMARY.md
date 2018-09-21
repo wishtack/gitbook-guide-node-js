@@ -17,6 +17,7 @@
   * [Middlewares](express/middlewares.md)
   * [Routing](express/routing.md)
   * [Templating](express/templating.md)
+  * [Quelques Liens](express/quelques-liens.md)
 * [LoopBack](loopback.md)
 * [Testing](testing.md)
 * [Databases](databases.md)
